@@ -10,20 +10,20 @@
 Ensure you have Go installed on your machine. Clone the repository containing the `git-upgrade-checker` source code and navigate to the directory. Then, build the tool using the following command:
 
 ```bash
-go build -o git-upgrade-checker
+go build -o guc
 ```
 
-This will generate an executable named `git-upgrade-checker` in your current directory.
+This will generate an executable named `guc` in your current directory.
 
 ### 2. Add Command to PATH
 
 To make the command globally accessible from anywhere in your terminal, move the executable to a directory included in your system's PATH, or add the current directory to the PATH. For example:
 
 ```bash
-sudo mv git-upgrade-checker /usr/local/bin/
+sudo mv guc /usr/local/bin/
 ```
 
-Alternatively, you can execute it directly from the current directory using `./git-upgrade-checker`.
+Alternatively, you can execute it directly from the current directory using `./guc`.
 
 ## Usage
 
@@ -32,7 +32,7 @@ The `git-upgrade-checker` tool provides various commands and options to customiz
 ### Main Command
 
 ```bash
-git-upgrade-checker [flags]
+guc [flags]
 ```
 
 This command compares the changes in one Git-tracked directory (`target`) against another directory (`source`).
@@ -47,7 +47,7 @@ This command compares the changes in one Git-tracked directory (`target`) agains
 **Example**:
 
 ```bash
-git-upgrade-checker -t /path/to/original/project -s /path/to/updated/project
+guc -t /path/to/original/project -s /path/to/updated/project
 ```
 
 This compares the changes in `/path/to/original/project` against `/path/to/updated/project`.
@@ -55,7 +55,7 @@ This compares the changes in `/path/to/original/project` against `/path/to/updat
 ### Version Command
 
 ```bash
-git-upgrade-checker version
+guc --version
 ```
 
 Displays the version of the tool.
@@ -63,21 +63,21 @@ Displays the version of the tool.
 ### Help Command
 
 ```bash
-git-upgrade-checker help
+guc --help
 ```
 
 Displays help information about the tool and its usage.
 
-## Adding `git-upgrade-checker` as a Post-Build Command
+## Adding `guc` as a Post-Build Command
 
-To automate running `git-upgrade-checker` after building your project, you can add it to your build pipeline or scripts. Here’s how you can integrate it into a Makefile or a simple shell script.
+To automate running `guc` after building your project, you can add it to your build pipeline or scripts. Here’s how you can integrate it into a Makefile or a simple shell script.
 
 ### Example in a Makefile
 
 ```make
 build:
     go build -o myproject
-    git-upgrade-checker -t /path/to/original/project -s /path/to/updated/project
+    guc -t /path/to/original/project -s /path/to/updated/project
 ```
 
 ### Example in a Shell Script
@@ -89,7 +89,7 @@ build:
 go build -o myproject
 
 # Run git-upgrade-checker
-git-upgrade-checker -t /path/to/original/project -s /path/to/updated/project
+guc -t /path/to/original/project -s /path/to/updated/project
 ```
 
 Make sure to give the script executable permissions:
