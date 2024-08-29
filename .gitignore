@@ -20,6 +20,7 @@ go.work.sum
 *.tmp
 *.swp
 *.bak
+*.csv
 
 # IDE/editor specific files
 .vscode/
